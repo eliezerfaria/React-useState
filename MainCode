@@ -1,0 +1,29 @@
+import { useState } from 'react'
+// usestate serve para gerenciar o estado de algum valor
+import './App.css'
+
+
+function App() {
+  const [count, setCount] = useState(0)
+  const [name, setName] = useState("Matheus");
+  const changeNumber = () => {
+    // Previous value - gerencia o valor anterior ao setstate
+    // usando desta forma, vai contar de dois em dois
+    setCount((prevCount) => prevCount + 1);
+    setCount((prevCount) => prevCount + 1);
+  }
+  
+  return (
+        
+      <div className="App">
+        <h2>Meu nome é {name}</h2>
+        <input type="text" value={name} onChange={(e => setName(e.target.value))} />
+        <div>
+          <p> Número {count}</p>
+          <button onClick={changeNumber}> Mudar Número</button>
+        </div>
+      </div>
+       
+  )
+}
+export default App
